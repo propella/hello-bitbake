@@ -13,10 +13,11 @@ addtask do_task before do_build
 
 python do_task() {
     bb.plain("===== areipe:do_task =====");
-    bb.plain("VAR_DEFINED_IN_ARECIPE:" + (d.getVar("VAR_DEFINED_IN_ARECIPE", False) or "Undefined"));
+    bb.plain("VAR_DEFINED_IN_ARECIPE: " + (d.getVar("VAR_DEFINED_IN_ARECIPE", False) or "Undefined"));
 
     # Test if a variable defined in another recipe is visible.
-    bb.plain("VAR_DEFINED_IN_HELLO:" + (d.getVar("VAR_DEFINED_IN_HELLO", False) or "Undefined"));
+    bb.plain("VAR_DEFINED_IN_HELLO: " + (d.getVar("VAR_DEFINED_IN_HELLO", False) or "Undefined"));
+    bb.plain("VAR_DEFINED_IN_GLOBAL: " + (d.getVar("VAR_DEFINED_IN_GLOBAL", False) or "Undefined"));
 }
 
 python do_build() {
